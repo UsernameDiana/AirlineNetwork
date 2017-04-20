@@ -9,6 +9,7 @@ package airportDomain;
  *
  * @author diana
  */
-public class Airports {
-    
+// AIRLINE_CODE;SOURCE_CODE;DESTINATION_CODE;DISTANCE;TIME
+public class Route {
+
 }
