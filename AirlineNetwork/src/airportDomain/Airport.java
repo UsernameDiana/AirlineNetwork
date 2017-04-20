@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package airportDomain;
 
-/**
- *
- * @author diana
- */
-public class Airport {
+
+// 1. Find if an airport can be reached from another airport
+// using only single airline company. Should compare
+// Breath-first, Depth-first
+
+public class Airport implements Comparable<Airport>{
 
     private String code;
     private String name;
@@ -73,6 +69,11 @@ public class Airport {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public int compareTo(Airport o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
