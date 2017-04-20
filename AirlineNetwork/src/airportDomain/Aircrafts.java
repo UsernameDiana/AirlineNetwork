@@ -9,6 +9,6 @@ package airportDomain;
  *
  * @author diana
  */
-public class airports {
+public class Aircrafts {
     
 }

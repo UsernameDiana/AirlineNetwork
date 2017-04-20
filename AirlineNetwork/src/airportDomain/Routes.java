@@ -9,6 +9,6 @@ package airportDomain;
  *
  * @author diana
  */
-public class airlines {
+public class Routes {
     
 }
