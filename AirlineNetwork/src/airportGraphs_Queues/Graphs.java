@@ -22,13 +22,48 @@ public class Graphs {
             depthFirst(marked, edgesTo, graph, edge.getHeadVertex());
         }
     }
-       public static <D,W> RootedTree<D,W> depthFirst(IGraph<D,W> graph, Vertex<D,W> root) {
-    Set<Vertex<D,W>> marked = new HashSet<>();
-    RootedTree<D,W> edgesTo = new SimpleRootedTree<>(graph, root);
-    
-    depthFirst(marked, edgesTo, graph, root);
-    
-    return edgesTo;
+
+    public static <D, W> RootedTree<D, W> depthFirst(IGraph<D, W> graph, Vertex<D, W> root) {
+        Set<Vertex<D, W>> marked = new HashSet<>();
+        RootedTree<D, W> edgesTo = new SimpleRootedTree<>(graph, root);
+
+        depthFirst(marked, edgesTo, graph, root);
+
+        return edgesTo;
     }
-    
+
+    private static <D, W> void breadthFirst(
+            Set<Vertex<D, W>> marked,
+            RootedTree<D, W> edgesTo,
+            IGraph<D, W> graph,
+            IQueue<Vertex<D, W>> queue
+    ) {
+        if (queue.isEmpty()) {
+            return;
+        }
+        Vertex<D, W> vertex = queue.dequeue();
+        for (Edge<D, W> edge : graph.getEdgesFrom(vertex)) {
+            Vertex<D, W> headVertex = edge.getHeadVertex();
+            if (marked.contains(headVertex)) {
+                continue;
+            }
+            marked.add(headVertex);
+            queue.enqueue(headVertex);
+            edgesTo.add(edge);
+        }
+        breadthFirst(marked, edgesTo, graph, queue);
+    }
+
+    public static <D, W> RootedTree<D, W> breadthFirst(IGraph<D, W> graph, Vertex<D, W> root) {
+        Set<Vertex<D, W>> marked = new HashSet<>();
+        RootedTree<D, W> edgesTo = new SimpleRootedTree<>(graph, root);
+        IQueue<Vertex<D, W>> queue = new LinkedQueue<>();
+
+        marked.add(root);
+        queue.enqueue(root);
+        breadthFirst(marked, edgesTo, graph, queue);
+
+        return edgesTo;
+    }
+
 }
