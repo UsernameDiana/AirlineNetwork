@@ -1,4 +1,4 @@
-package airportSetup;
+package airportGraphs_Queues;
 
 /**
  * Contract for a IQueue abstract data structure.

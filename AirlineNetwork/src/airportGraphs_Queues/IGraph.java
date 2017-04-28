@@ -1,4 +1,4 @@
-package airportSetup;
+package airportGraphs_Queues;
 
 import java.io.PrintStream;
 import java.util.Collection;
