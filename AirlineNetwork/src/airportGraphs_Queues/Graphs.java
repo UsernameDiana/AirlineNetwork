@@ -5,6 +5,8 @@ import airportGraphs_Queues.IGraph.Vertex;
 import java.util.HashSet;
 import java.util.Set;
 
+// Find if an Airport can be reached from another using single Airline
+// Compare DepthFirst and BreathFirst
 public class Graphs {
 
     private static <D, W> void depthFirst(
